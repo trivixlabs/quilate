@@ -1,0 +1,52 @@
+data_dir = "~/quilate-dados"
+tz = "America/Sao_Paulo"
+budget_usd = 50
+budget_alert_ratio = 0.8
+dust_usd = 10
+# Identificação do grupo e das pessoas: config.local.toml (fora do Git). Veja config.local.example.toml.
+owner_name = ""
+analyst_username = ""
+analyst_name = ""
+trigger_topic = 0  # sem tópico de gatilho: o tópico e os nomes dos tópicos ficam no config.local.toml
+cutoff_hour = 12
+intraday_move = 0.10
+sync_minutes = 5  # sincronização das corretoras e checagem intradiária, em minutos (1 a 60)
+symbol_aliases = { XBT = "BTC", MATIC = "POL" }
+# MEXC e Gate não informam as permissões da chave pela API. Ficam recusadas até o dono confirmar (config.local.toml).
+confirmed_read_only = []
+ambiguous_tickers = ["LINK", "OP", "NEAR", "ONE", "GAS", "SUN", "ID", "MEME", "AI", "TON", "FET"]
+
+[thresholds]
+s1_ret_90d = -0.20
+s2_drawdown = 0.85
+s3_vol_ratio = 0.5
+s3_pos_mult = 20
+s3_spread = 0.01
+s4_unlock_90d = 0.03
+s4_inflation = 0.10
+s6_silence_days = 90
+s7_low = 0.3
+s7_high = 3.0
+s7_near_high = 0.9
+
+# USD por milhão de tokens, conferido em 09/11/2026 em platform.claude.com/docs/en/about-claude/pricing
+[prices.claude-sonnet-5-5]
+input = 2.00
+output = 10.00
+cache_read = 0.10
+cache_write_1h = 4.00
+
+[prices.claude-opus-5-5]
+input = 4.00
+output = 20.00
+cache_read = 0.20
+cache_write_1h = 8.00
+
+[prices.claude-haiku-5-5]
+input = 0.10
+output = 0.50
+cache_read = 0.01
+cache_write_1h = 0.20
+# pedido com prompt acima de 100 mil tokens (entrada + cache) paga 5 vezes em tudo
+long_prompt_tokens = 100000
+long_prompt_mult = 5.0

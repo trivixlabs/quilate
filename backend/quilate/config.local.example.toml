@@ -1,0 +1,22 @@
+# Copie para config.local.toml (fica fora do Git) e preencha.
+# Qualquer chave de config.toml pode ser sobreposta aqui. Uma tabela substitui a tabela inteira.
+# Chave que não existe em config.toml faz o sistema recusar o arquivo, com o nome da chave no erro.
+
+# Usuário do Telegram (sem @) de quem publica as análises no grupo.
+analyst_username = "usuario_do_analista"
+
+# Nome de exibição do analista na tela, no bot e no prompt da IA. Vazio, os textos dizem "o analista".
+analyst_name = "Ana"
+
+# MEXC e Gate não informam pela API se a chave é somente leitura, e o sistema recusa a chave delas.
+# Confirme no site de cada corretora que a chave não tem trade, saque nem transferência. Só então
+# acrescente o nome aqui. Binance e Bybit são verificadas pela API e não precisam disto.
+# confirmed_read_only = ["mexc", "gate"]
+
+# Tópico do grupo cuja mensagem do analista dispara o ciclo diário. Com 0, o ciclo roda só no horário limite.
+trigger_topic = 101
+
+# Nomes dos tópicos do grupo, pelo número do tópico.
+[group_topics]
+101 = "MARKET UPDATES"
+102 = "GENERAL"

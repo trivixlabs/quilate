@@ -1,0 +1,24 @@
+name: Idea
+description: Propose a feature or a change.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: Quilate only recommends. It never buys, sells, withdraws or transfers. Ideas that change this are out of scope.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What do you need that Quilate does not do today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered

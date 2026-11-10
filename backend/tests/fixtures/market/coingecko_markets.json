@@ -1,0 +1,35 @@
+[
+ {
+  "id": "bitcoin",
+  "symbol": "btc",
+  "name": "Bitcoin",
+  "current_price": 80788,
+  "market_cap": 1624263014997,
+  "market_cap_rank": 1,
+  "total_volume": 40458811335,
+  "ath": 126080,
+  "circulating_supply": 20105365.0
+ },
+ {
+  "id": "ethereum",
+  "symbol": "eth",
+  "name": "Ethereum",
+  "current_price": 2437.95,
+  "market_cap": 297890577267,
+  "market_cap_rank": 2,
+  "total_volume": 17425322571,
+  "ath": 4946.05,
+  "circulating_supply": 122189135.08807562
+ },
+ {
+  "id": "tether",
+  "symbol": "usdt",
+  "name": "Tether",
+  "current_price": 0.999349,
+  "market_cap": 178257577168,
+  "market_cap_rank": 3,
+  "total_volume": 64589842957,
+  "ath": 1.32,
+  "circulating_supply": 178373746488.0956
+ }
+]
