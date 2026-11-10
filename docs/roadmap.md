@@ -24,4 +24,4 @@ The dashboard, the CLI commands and the notch app are in Portuguese. The plan is
 
 ## 6. Visual identity
 
-A logo, an icon for the notch app and a small design system for Quilate. Right now the logo is the letter C in a box, which is a bit modest for something named after the purity of gold.
+A logo, an icon for the notch app and a small design system for Quilate. Right now the logo is the letter Q in a box, which is a bit modest for something named after the purity of gold.
