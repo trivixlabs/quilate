@@ -5,7 +5,7 @@ license = "AGPL-3.0-or-later"
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "fastapi", "uvicorn[standard]", "apscheduler>=3,<4", "ccxt", "telethon", "anthropic",
-  "pydantic>=2", "keyring", "httpx", "sqlite-vec", "sentence-transformers",
+  "pydantic>=2.14.3", "keyring", "httpx", "sqlite-vec", "sentence-transformers",
   "mlx-whisper", "yt-dlp", "trafilatura",
 ]
 
