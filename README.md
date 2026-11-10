@@ -1,5 +1,10 @@
 # Quilate
 
+[![CI](https://github.com/trivixlabs/quilate/actions/workflows/ci.yml/badge.svg)](https://github.com/trivixlabs/quilate/actions/workflows/ci.yml)
+[![License: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0--or--later-blue)](LICENSE)
+![Platform: macOS on Apple Silicon](https://img.shields.io/badge/platform-macOS%20Apple%20Silicon-lightgrey)
+[![Pull requests welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+
 [Português](README.pt-BR.md)
 
 Quilate watches your crypto portfolio on four exchanges, reads an analyst's Telegram community, and gives each coin a daily verdict: hold, reduce or exit. It runs only on your Mac, it only reads, and it never trades.
@@ -104,6 +109,15 @@ Docs for contributors: [architecture](docs/architecture.md), [API](docs/api.md),
 ## Origin
 
 Quilate joins two projects. `carteira-cripto`, by Vitor Trigo, read the portfolio and the community and produced the verdicts. The idea of a portfolio ticker in the MacBook notch came from [StockNotch](https://github.com/rodrigovixc/macOs-notch-ticker), by Rodrigo da Vitoria. The name comes from the carat ("quilate" in Portuguese), the measure of gold purity: Quilate measures the quality of each asset.
+
+## Maintainers
+
+| | |
+|---|---|
+| <img src="https://github.com/vitaomt.png?size=96" width="48" height="48" alt=""> | **Vitor Trigo** ([@vitaomt](https://github.com/vitaomt)). Wrote `carteira-cripto`: the backend, the verdicts and the dashboard. |
+| <img src="https://github.com/rodrigovixc.png?size=96" width="48" height="48" alt=""> | **Rodrigo da Vitoria** ([@rodrigovixc](https://github.com/rodrigovixc)). Wrote StockNotch, the idea behind the notch app. |
+
+Quilate is a project of [Trivix Labs](https://github.com/trivixlabs). Everyone who has a commit in the repository is on the [contributors page](https://github.com/trivixlabs/quilate/graphs/contributors). Yours can be next.
 
 ## License
 
