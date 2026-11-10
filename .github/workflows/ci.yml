@@ -1,0 +1,110 @@
+# Backend and notch run on macOS (mlx-whisper only installs on Apple Silicon). Frontend runs on Linux.
+# `ci-ok` is the only check the branch rule on main requires.
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      backend: ${{ steps.diff.outputs.backend }}
+      frontend: ${{ steps.diff.outputs.frontend }}
+      notch: ${{ steps.diff.outputs.notch }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - id: diff
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -eu
+          if [ "$EVENT" = push ]; then
+            files=all
+          else
+            files="$(git diff --name-only "$BASE" HEAD)"
+          fi
+          hit() { [ "$files" = all ] || printf '%s\n' "$files" | grep -qE "$1"; }
+          for job in backend frontend notch; do
+            if hit "^(\.github/|scripts/|$job/)"; then echo "$job=true"; else echo "$job=false"; fi
+          done >> "$GITHUB_OUTPUT"
+  backend:
+    needs: changes
+    if: needs.changes.outputs.backend == 'true'
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          enable-cache: true
+          cache-dependency-glob: backend/uv.lock
+      # the Python that uv downloads cannot load SQLite extensions (sqlite-vec); Homebrew's can
+      - run: brew install python@3.12
+      - run: uv sync --frozen --python "$(brew --prefix python@3.12)/bin/python3.12"
+      - run: uv run ruff check .
+      - run: uv run ruff check ../scripts
+      - run: uv run pytest -q
+      - run: uv run pytest -q ../scripts/tests
+  frontend:
+    needs: changes
+    if: needs.changes.outputs.frontend == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+  notch:
+    needs: changes
+    if: needs.changes.outputs.notch == 'true'
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: notch
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: swift build
+      - run: swift test
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0 # scan the whole history, not only the last commit
+      # gitleaks v8.30.1, pinned by digest
+      - run: >
+          docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/repo"
+          ghcr.io/gitleaks/gitleaks@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f
+          detect --source /repo --redact
+  ci-ok:
+    needs: [changes, backend, frontend, notch, secrets]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      # a skipped job counts as passed; only failure or cancelled fails the gate
+      - if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1

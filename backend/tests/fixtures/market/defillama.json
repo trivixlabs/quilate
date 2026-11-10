@@ -1,0 +1,22 @@
+{
+ "peggedAssets": [
+  {
+   "symbol": "USDT",
+   "circulating": {
+    "peggedUSD": 177662385529.92905
+   }
+  },
+  {
+   "symbol": "USDC",
+   "circulating": {
+    "peggedUSD": 71118912695.21072
+   }
+  },
+  {
+   "symbol": "USDS",
+   "circulating": {
+    "peggedUSD": 6504918552.051715
+   }
+  }
+ ]
+}

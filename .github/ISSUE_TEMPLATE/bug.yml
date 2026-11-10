@@ -1,0 +1,42 @@
+name: Bug
+description: Something does not work as documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not paste keys, tokens, chat IDs or personal data. For security problems, use the private report link instead.
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "macOS 15.1, Apple Silicon"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Quilate version or commit
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Remove anything private first.
+      render: text

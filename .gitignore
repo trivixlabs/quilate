@@ -1,0 +1,28 @@
+# Segredos e dados locais. Nunca entram no Git.
+.env*
+*.session
+*.session-journal
+*.sqlite*
+*.db
+backend/quilate/config.local.toml
+CLAUDE.local.md
+
+# Build e dependências
+node_modules/
+frontend/dist/
+backend/quilate/api/static/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+frontend/coverage/
+
+# Ferramentas e sistema
+.superpowers/
+.DS_Store
+*.log
+.claude/
+notch/.build/
+notch/.swiftpm/
+notch/*.app

@@ -1,0 +1,24 @@
+Quilate
+Copyright (c) 2026 Vitor Trigo, Rodrigo da Vitoria e colaboradores do Quilate
+
+Licensed under the GNU Affero General Public License, version 3 or (at your
+option) any later version. See the LICENSE file.
+
+Third-party notices
+-------------------
+Dependencies under the Apache License 2.0 that ship their own NOTICE file.
+The full list of dependencies and licenses is in docs/third-party-licenses.md.
+
+sentence-transformers (Apache-2.0)
+  Copyright 2019-2025 Ubiquitous Knowledge Processing (UKP) Lab,
+  Technische Universitaet Darmstadt
+  Copyright 2025-present Hugging Face, Inc.
+
+typescript (Apache-2.0, development dependency, not redistributed)
+  Copyright (c) Microsoft Corporation. Its NOTICE.txt lists third-party
+  material; see https://github.com/microsoft/TypeScript/blob/main/NOTICE.txt
+
+lightweight-charts (Apache-2.0)
+  Copyright 2023 TradingView, Inc.
+  Charts by TradingView Lightweight Charts: https://www.tradingview.com/
+  The dashboard keeps the library's attribution logo on (layout.attributionLogo).

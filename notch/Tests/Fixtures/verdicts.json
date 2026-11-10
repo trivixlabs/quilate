@@ -1,0 +1,79 @@
+{
+  "day": "2026-11-04",
+  "groups": {
+    "Sair": [
+      {
+        "symbol": "ARB", "name": "Arbitrum", "exchanges": ["binance", "gate"],
+        "price_usd": 0.41, "change_24h": -0.034, "value_usd": 1722.0,
+        "pnl_usd": -5208.0, "cost_unknown": false,
+        "verdict": "Sair", "rubric_verdict": "Sair", "ai_verdict": "Sair", "confidence": 0.78,
+        "alerts": 5,
+        "signals": [
+          {"code": "S1", "name": "Força contra o BTC", "alert": true, "value": "−34% em 90 d"},
+          {"code": "S2", "name": "Tendência de queda", "alert": true, "value": "−75% da máxima"},
+          {"code": "S3", "name": "Liquidez", "alert": true, "value": "volume 0,46×"},
+          {"code": "S4", "name": "Oferta nova", "alert": true, "value": "4,10% em 90 d"},
+          {"code": "S5", "name": "Risco de deslistagem", "alert": false, "value": "em 2 corretora(s)"},
+          {"code": "S6", "name": "Analista", "alert": true, "value": "mandou sair"},
+          {"code": "S7", "name": "Atenção do grupo", "alert": false, "value": "menções 0,8× a média"}
+        ],
+        "reason": "Perdeu 34% contra o BTC em 90 dias.", "no_analyst": false, "flag": null
+      }
+    ],
+    "Reduzir": [
+      {
+        "symbol": "LINK", "name": "Chainlink", "exchanges": ["binance", "mexc"],
+        "price_usd": 15.62, "change_24h": -0.009, "value_usd": 4842.2,
+        "pnl_usd": -1295.8, "cost_unknown": false,
+        "verdict": "Reduzir", "rubric_verdict": "Reduzir", "ai_verdict": "Manter", "confidence": 0.64,
+        "alerts": 3,
+        "signals": [
+          {"code": "S1", "name": "Força contra o BTC", "alert": true, "value": "−22% em 90 d"},
+          {"code": "S2", "name": "Tendência de queda", "alert": true, "value": "−41% da máxima"},
+          {"code": "S3", "name": "Liquidez", "alert": false, "value": "volume 0,92×"},
+          {"code": "S4", "name": "Oferta nova", "alert": false, "value": "1,20% em 90 d"},
+          {"code": "S5", "name": "Risco de deslistagem", "alert": false, "value": "em 2 corretora(s)"},
+          {"code": "S6", "name": "Analista", "alert": true, "value": "silêncio 3 d"},
+          {"code": "S7", "name": "Atenção do grupo", "alert": false, "value": "menções 1,1× a média"}
+        ],
+        "reason": "Abaixo da média de 200 dias.", "no_analyst": false, "flag": null
+      }
+    ],
+    "Manter": [
+      {
+        "symbol": "BTC", "name": "Bitcoin", "exchanges": ["binance", "bybit"],
+        "price_usd": 101250.0, "change_24h": 0.018, "value_usd": 42525.0,
+        "pnl_usd": 13797.0, "cost_unknown": false,
+        "verdict": "Manter", "rubric_verdict": "Manter", "ai_verdict": "Manter", "confidence": 0.86,
+        "alerts": 0,
+        "signals": [
+          {"code": "S1", "name": "Força contra o BTC", "alert": null, "value": "sem dado"},
+          {"code": "S2", "name": "Tendência de queda", "alert": false, "value": "−8% da máxima"},
+          {"code": "S3", "name": "Liquidez", "alert": false, "value": "volume 1,20×"},
+          {"code": "S4", "name": "Oferta nova", "alert": false, "value": "inflação 0,80% ao ano"},
+          {"code": "S5", "name": "Risco de deslistagem", "alert": false, "value": "em 4 corretora(s)"},
+          {"code": "S6", "name": "Analista", "alert": false, "value": "silêncio 0 d"},
+          {"code": "S7", "name": "Atenção do grupo", "alert": false, "value": "menções 1,4× a média"}
+        ],
+        "reason": "Tendência de alta e dominância subindo.", "no_analyst": false, "flag": null
+      },
+      {
+        "symbol": "ETH", "name": "Ethereum", "exchanges": ["bybit"],
+        "price_usd": 3480.0, "change_24h": null, "value_usd": 10788.0,
+        "pnl_usd": null, "cost_unknown": true,
+        "verdict": "Manter", "rubric_verdict": "Manter", "ai_verdict": null, "confidence": null,
+        "alerts": 1,
+        "signals": [
+          {"code": "S1", "name": "Força contra o BTC", "alert": true, "value": "−9% em 90 d"},
+          {"code": "S2", "name": "Tendência de queda", "alert": false, "value": "−29% da máxima"},
+          {"code": "S3", "name": "Liquidez", "alert": false, "value": "volume 1,00×"},
+          {"code": "S4", "name": "Oferta nova", "alert": false, "value": "inflação 0,50% ao ano"},
+          {"code": "S5", "name": "Risco de deslistagem", "alert": false, "value": "em 4 corretora(s)"},
+          {"code": "S6", "name": "Analista", "alert": false, "value": "silêncio 5 d"},
+          {"code": "S7", "name": "Atenção do grupo", "alert": false, "value": "menções 1,2× a média"}
+        ],
+        "reason": "Acima da média de 200 dias.", "no_analyst": false, "flag": "sem custo"
+      }
+    ]
+  }
+}

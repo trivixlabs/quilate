@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@theme {
+  --color-fundo: #07080c;
+  --color-painel: #0d1017;
+  --color-borda: #1c2130;
+  --color-texto: #e7e9ee;
+  --color-texto-2: #9aa3b5;
+  --color-violeta: #a78bfa;
+  --color-ciano: #22d3ee;
+  --color-manter: #2dd4bf;
+  --color-reduzir: #fbbf24;
+  --color-sair: #fb7185;
+  --color-alta: #34d399;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-fundo);
+  color: var(--color-texto);
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Movimento que mostra o sistema vivo (protótipo B). */
+@property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes ring-spin { to { --ang: 360deg; } }
+@keyframes live-ping { 0% { transform: scale(1); opacity: .7; } 80%, 100% { transform: scale(2.6); opacity: 0; } }
+@keyframes hero-beam { from { transform: translateX(-100%); } to { transform: translateX(400%); } }
+@keyframes flash-up { from { background-color: rgb(52 211 153 / .22); color: #6ee7b7; } }
+@keyframes flash-down { from { background-color: rgb(251 113 133 / .22); color: #fda4af; } }
+@keyframes fade-in { from { opacity: 0; transform: translateY(8px); } }
+/* Medidor de medo e ganância: o arco enche e o ponteiro sai da esquerda com um leve passe. */
+@keyframes gauge-fill { from { stroke-dasharray: 0 100; } }
+@keyframes gauge-swing { from { transform: rotate(-90deg); } }
+.gauge-arc { animation: gauge-fill 1.2s ease-out both; }
+.gauge-needle { animation: gauge-swing 1.4s cubic-bezier(.2, .9, .25, 1.15) both; }
+/* Troca de etapa na Configuração: o conteúdo novo entra da direita. */
+@keyframes slide-in { from { opacity: 0; transform: translateX(12px); } }
+
+.glow-sair {
+  background-image: conic-gradient(from var(--ang), transparent 0deg 240deg, var(--color-sair) 320deg, transparent 360deg);
+  animation: ring-spin 4s linear infinite;
+}
+/* Borda do foco da moeda (protótipo C): violeta para ciano, girando. */
+.glow-foco {
+  background-image: conic-gradient(from var(--ang), transparent 0deg 250deg, var(--color-violeta) 300deg, var(--color-ciano) 340deg, transparent 360deg);
+  animation: ring-spin 5s linear infinite;
+}
+.fade-in { animation: fade-in .45s ease-out both; }
+.slide-in { animation: slide-in .35s cubic-bezier(.2, .7, .2, 1) both; }
+.ping { animation: live-ping 1.6s cubic-bezier(0, 0, .2, 1) infinite; }
+.beam { animation: hero-beam 3.5s ease-in-out infinite; }
+.flash-up { animation: flash-up .7s ease-out; }
+.flash-down { animation: flash-down .7s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-sair, .glow-foco, .fade-in, .slide-in, .ping, .beam, .gauge-arc, .gauge-needle { animation: none; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

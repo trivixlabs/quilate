@@ -1,0 +1,8 @@
+{
+  "spent_month_usd": 8.9,
+  "budget_usd": 10.0,
+  "budget_state": "alerta",
+  "one_time_usd": 0.42,
+  "by_purpose": [{"purpose": "veredito", "usd": 6.1}, {"purpose": "manual", "usd": 2.8}],
+  "by_model": [{"model": "claude-sonnet-5-5", "usd": 8.9}]
+}

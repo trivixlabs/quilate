@@ -1,0 +1,24 @@
+{
+ "code": "000000",
+ "data": [
+  {
+   "s": "BTCUSDT",
+   "b": "BTC",
+   "q": "USDT",
+   "st": "TRADING",
+   "tags": [
+    "Payments",
+    "mining-zone"
+   ]
+  },
+  {
+   "s": "AVAUSDT",
+   "b": "AVA",
+   "q": "USDT",
+   "st": "TRADING",
+   "tags": [
+    "Monitoring"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+  "total_usd": 59877.2,
+  "total_brl": 329324.6,
+  "invested_usd": 51000.0,
+  "pnl_usd": 7293.2,
+  "pnl_pct": 0.14300392156862745,
+  "by_exchange": [
+    {"exchange": "binance", "usd": 42525.0, "stale": false, "share": 0.7102},
+    {"exchange": "bybit", "usd": 10788.0, "stale": false, "share": 0.1802},
+    {"exchange": "mexc", "usd": 4842.2, "stale": true, "share": 0.0809},
+    {"exchange": "gate", "usd": 1722.0, "stale": false, "share": 0.0288}
+  ],
+  "history": [
+    {"ts": "2026-11-02", "usd": 58120.5},
+    {"ts": "2026-11-03", "usd": 58904.1},
+    {"ts": "2026-11-04", "usd": 59877.2}
+  ],
+  "spent_month_usd": 1.87,
+  "budget_usd": 10.0,
+  "budget_state": "ok",
+  "last_cycle_utc": "2026-11-04T09:00:12+00:00",
+  "playbook_approved": true,
+  "disclaimer": "Material de apoio à decisão, não é recomendação de investimento.",
+  "analyst_name": "Ana"
+}
